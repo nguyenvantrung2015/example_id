@@ -1,0 +1,13 @@
+.toast {
+  &-list {
+    width: 300px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  &-item{
+    font-size: 13px;
+    cursor: pointer;
+    transition: opacity 2.5s;
+  }
+}

@@ -4,12 +4,43 @@
     <title>ExampleId</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="position-relative">
+    <div class="position-absolute toast-list mt-2">
+      <% flash.each do |message_type, messages| %>
+        <% if message_type == 'danger' %>
+          <% messages.each do |message| %>
+            <div class="toast-item alert alert-danger px-3 py-2" role="alert">
+              <%= message %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="toast-item alert <%= "alert-#{message_type}" %> px-3 py-2" role="alert">
+            <%= messages %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
+
+<script>
+  document.addEventListener("turbolinks:load", function() {
+    let toastItems = document.getElementsByClassName("toast-item");
+    for (let i = 0; i < toastItems.length; i++) {
+        setTimeout(function () {
+            toastItems[i].style.opacity = '0';
+        }, 3000);
+
+        setTimeout(function () {
+            toastItems[0].remove();
+        }, 5500);
+    }
+  });
+</script>
