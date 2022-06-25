@@ -1,5 +1,5 @@
 <div id="home">
-  <div class="header-blue">
+  <div class="header-blue px-5">
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
       <div class="container-fluid"><a class="navbar-brand" href="#">NGA NGUYEN</a>
         <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -16,10 +16,17 @@
               <input class="form-control search-field" type="search" id="search-field" name="search">
             </div>
           </form>
-          <span class="navbar-text ms-auto pr-4 me-3">
-            <a class="login" href="#">Log In</a>
-          </span>
-          <%= link_to "Sign Up", sign_up_new_path, class: "btn btn-light action-button" %>
+          <% if user_signed_in? %>
+            <span class="navbar-text ms-auto pr-4 me-3">
+              <%= link_to current_user.email, '', class: "login ms-auto" %>
+            </span>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-light action-button" %>
+          <% else %>
+            <span class="navbar-text ms-auto pr-4 me-3">
+              <%= link_to "Log In", new_user_session_path, class: "login" %>
+            </span>
+            <%= link_to "Sign Up", sign_up_new_path, class: "btn btn-light action-button" %>
+          <% end %>
         </div>
       </div>
     </nav>

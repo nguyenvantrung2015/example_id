@@ -13,14 +13,14 @@
   <body class="position-relative">
     <div class="position-absolute toast-list mt-2">
       <% flash.each do |message_type, messages| %>
-        <% if message_type == 'danger' %>
-          <% messages.each do |message| %>
+        <% if %w[danger alert].include?(message_type) %>
+          <% [messages].flatten.each do |message| %>
             <div class="toast-item alert alert-danger px-3 py-2" role="alert">
               <%= message %>
             </div>
           <% end %>
         <% else %>
-          <div class="toast-item alert <%= "alert-#{message_type}" %> px-3 py-2" role="alert">
+          <div class="toast-item alert alert-success px-3 py-2" role="alert">
             <%= messages %>
           </div>
         <% end %>
