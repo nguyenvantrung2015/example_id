@@ -8,7 +8,7 @@ class RegistrationsController < ApplicationController
       redirect_to root_path
     else
       flash[:danger] = user.errors.full_messages
-      redirect_to sign_up_new_path
+      redirect_to new_user_registration_path
     end
   end
 
