@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     get    '/sign_up/new', to: "registrations#new", as: :new_user_registration
     post   '/sign_up', to: "registrations#create"
   end
+
+  get 'auth/facebook/callback', to: 'omniauth_callbacks#facebook'
+
 end
+

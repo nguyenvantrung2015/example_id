@@ -17,10 +17,26 @@
     <p class="text-center textmuted"> or sign in with:</p>
     <div class="pb-4">
       <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
-        <li class="icon me-3"><span class="fab fa-facebook"></span></li>
-        <li class="icon me-3"><span class="fab fa-google-plus"></span></li>
-        <li class="icon me-3"><span class="fab fa-twitter"></span></li>
-        <li class="icon "><span class="fab fa-github"></span></li>
+        <li class="icon me-3">
+          <%= link_to "/auth/facebook", method: :post, class: "text-white" do %>
+            <span class="fab fa-facebook"></span>
+          <% end %>
+        </li>
+        <li class="icon me-3">
+          <%= link_to "/auth/google", class: "text-white" do %>
+            <span class="fab fa-google-plus"></span>
+          <% end %>
+        </li>
+        <li class="icon me-3">
+          <%= link_to "/auth/google", class: "text-white" do %>
+            <span class="fab fa-twitter"></span>
+          <% end %>
+        </li>
+        <li class="icon ">
+          <%= link_to "/auth/google", class: "text-white" do %>
+            <span class="fab fa-github"></span>
+          <% end %>
+        </li>
       </ul>
     </div>
     <div class="text-center">
