@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get 'auth/facebook/callback', to: 'omniauth_callbacks#facebook'
+  get 'auth/google_oauth2/callback', to: 'omniauth_callbacks#google_oauth2'
 
 end
 
