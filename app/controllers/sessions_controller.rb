@@ -1,6 +1,5 @@
-class SessionsController < Devise::SessionsController
+# frozen_string_literal: true
 
-  def create
-    super
-  end
+# Used to handle the login function
+class SessionsController < Devise::SessionsController
 end
