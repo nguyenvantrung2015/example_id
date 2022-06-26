@@ -1,15 +1,5 @@
 class OmniauthCallbacksController < ApplicationController
-  def facebook
-    handle_callback
-  end
-
-  def google_oauth2
-    handle_callback
-  end
-
-  private
-
-  def handle_callback
+  def callback
     user_info = request.env["omniauth.auth"].info
     user = User.find_by_email(user_info.email)
     if user.nil?

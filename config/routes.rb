@@ -11,8 +11,6 @@ Rails.application.routes.draw do
     post   '/sign_up', to: "registrations#create"
   end
 
-  get 'auth/facebook/callback', to: 'omniauth_callbacks#facebook'
-  get 'auth/google_oauth2/callback', to: 'omniauth_callbacks#google_oauth2'
-
+  match 'auth/:provider/callback', to: 'omniauth_callbacks#callback', via: :get
 end
 
