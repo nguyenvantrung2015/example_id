@@ -1,0 +1,19 @@
+<div class="container">
+  <div>
+    <div class="task-list mt-5">
+      <div>
+        <button type="button" class="btn btn-primary register-button" id="webauthn-register">Register</button>
+      </div>
+      <div class="mt-4">
+        <% current_user&.webauthn_credentials&.each do |item| %>
+          <div>
+            Created in <%= item.created_at || "There are no registered security device" %>
+            <%= link_to 'delete',webauthn_credential_path(item.id), method: :delete %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= javascript_pack_tag 'webauthn_credentials.js'%>

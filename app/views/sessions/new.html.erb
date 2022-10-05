@@ -7,10 +7,6 @@
     <div class="mb-4">
       <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control", placeholder: "Password", required: true %>
     </div>
-    <div class="mb-4 d-flex align-items-center justify-content-center">
-      <label for="check" class="d-flex align-items-center justify-content-center ">
-        <input type="checkbox" id="check"> <span class="ms-2 textmuted">Subscrible to our newsletter</span> </label>
-    </div>
     <div class="mb-4">
       <%= f.submit "SIGN IN", class: "btn btn-primary d-block w-100" %>
     </div>
@@ -32,9 +28,14 @@
             <span class="fab fa-twitter"></span>
           <% end %>
         </li>
-        <li class="icon ">
+        <li class="icon me-3">
           <%= link_to "/auth/github", method: :post, class: "text-white" do %>
             <span class="fab fa-github"></span>
+          <% end %>
+        </li>
+        <li class="icon ">
+          <%= link_to "/webauthn", method: :get, class: "text-white" do %>
+            <span class="fa fa-fingerprint"></span>
           <% end %>
         </li>
       </ul>

@@ -17,5 +17,15 @@ module ExampleId
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        # 許可するドメイン
+        origins "localhost:3000"
+        # 許可するヘッダとメソッドの種類
+        resource "*",
+                 headers: :any,
+                 methods: [:get, :post, :patch, :delete, :head, :options]
+      end
+    end
   end
 end
