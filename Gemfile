@@ -36,7 +36,9 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
+gem 'webauthn'
+gem 'rack-cors'
+gem 'activerecord-session_store'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
