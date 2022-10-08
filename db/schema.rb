@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_10_03_114959) do
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_114959) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "webauthn_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "webauthn_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "external_id", null: false
     t.string "public_key", null: false
     t.string "user_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_10_03_114959) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "webauthn_ids", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "webauthn_ids", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "webauthn_id"
     t.datetime "created_at", precision: 6, null: false
