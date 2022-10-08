@@ -49,7 +49,7 @@ class WebauthnCredentialsController < ApplicationController
         resident_key: 'preferred'
       }
     }
-    registration_options = WebAuthn::Credential.options_for_create(registration_params)
+    registration_options = WebAuthn::Credential.options_for_create(**registration_params)
     session[:webauthn_credential_attestation] = {
       webauthn_id: webauthn_id,
       challenge: registration_options.challenge
@@ -61,8 +61,6 @@ class WebauthnCredentialsController < ApplicationController
       flash[:danger] = 'An error has occurred'
       render status: :unprocessable_entity, json: { message: "An error has occurred" }
     end
-
-
   end
 
 
